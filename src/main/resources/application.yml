@@ -1,0 +1,50 @@
+server:
+  port: 80
+authentication:
+  oauth:
+    clientid: clientid
+    secret: secret
+    tokenValidityInSeconds: 60
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    pool:
+      max-active: 100
+      max-idle: 20
+      min-idle: 2
+      max-wait: -1
+    database: 0
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/oauth2?characterEncoding=utf8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    #最大连接等待超时时间（毫秒）
+    maxWait: 60000
+    #打开PScache，并指定每个PScache连接的大小
+    poolPreparedStatments: true
+    maxPoolPreparedStatmentPerConnectionSize: 20
+    #打开mergeSql功能，开启执行超5秒的sql记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+    #是否初始化数据库
+    initialize: true
+security:
+  oauth2:
+    storeType: jwt # jdbc redis jwt
+jwt:
+  signingKey: jwt
