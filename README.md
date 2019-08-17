@@ -1,6 +1,6 @@
 ## OAUTH2密码模式
   密码模式是用户直接将自己的用户名密码交给client，client用用户的用户名密码直接换取AccessToken
-![password](passwordmode.jpeg)
+![password](passwordgrant.png)  
 用户将认证密码发送给client  
 client拿着用户的密码向授权服务器请求Access Token  
 授权服务器将Access Token和Refresh Token发送给client  
