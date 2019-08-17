@@ -31,7 +31,7 @@ curl -i -X POST \
    -d "refresh_token=29779042-6492-4512-b410-1aaf42e6ab17" \
  'http://localhost/oauth/token'
 ```
-refush_token在不同情况下  
+refush_token在不同场景下的效果  
 1. 调用时access_token，refresh_token均未过期  
 access_token会变,而且expires延长,refresh_token根据设定的过期时间,没有失效则不变
 2. 调用时access_token过期，refresh_token未过期  
@@ -50,3 +50,8 @@ token可以有不同的存储方式 都是TokenStore接口的实现类,demo中�
 token信息存储在redis中,需要配置redis连接
 3. jwt  
 jwt产生的access_token中直接包含了用户的基本信息,可以通过网址[jsonwebtoken.io](https://www.jsonwebtoken.io/)解析tonken中存在的用户信息
+
+## spring security oauth2 源码解析
+[Spring Security Oauth2之架构源码解读](https://www.imooc.com/article/details/id/31057) 
+## 注意
+代码参考慕课网视频
